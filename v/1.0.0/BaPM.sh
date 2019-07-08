@@ -19,13 +19,7 @@ bapm() {
   nul='\0'
   while IFS= read -d '' -r x || { nul=""; [ -n "$x" ]; }; do 
       printf "%s$nul" "$x" | tee BAPMR-IN-TEMP.bapmr > /dev/null
-	  FILENAME=basename $0
-	  FILENAMEOUT=${cut -d . -f 2 <<< $FILENAME}
-	  echo $FILENAMEOUT
-  tar -czvf $FILENAMEOUT.tar.gz Out.bapmr
   done <&3
   exec 3>&-
   
 }
-bapm https://www.w3.org/TR/PNG/iso_8859-1.txt
-sleep 5d
