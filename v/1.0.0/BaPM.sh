@@ -1,3 +1,5 @@
+#!/bin/bash
+# example: downloadf <file>
 bapm() {
   read proto server path <<< "${1//"/"/ }"
   DOC=/${path// //}
@@ -22,4 +24,3 @@ bapm() {
   done <&3
   exec 3>&-
 }
-downloadf https://www.w3.org/TR/PNG/iso_8859-1.txt
